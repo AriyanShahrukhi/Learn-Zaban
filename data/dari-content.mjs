@@ -609,6 +609,481 @@ export const lessons = [
   }
 ];
 
+const supplementalObjects = [
+  ["آب", "aab", "water"],
+  ["چای", "chaay", "tea"],
+  ["نان", "naan", "bread"],
+  ["برنج", "berenj", "rice"],
+  ["گوشت", "gosht", "meat"],
+  ["مرغ", "morgh", "chicken"],
+  ["ماهی", "maahi", "fish"],
+  ["شیر", "shir", "milk"],
+  ["قند", "qand", "sugar"],
+  ["نمک", "namak", "salt"],
+  ["مرچ", "march", "pepper"],
+  ["روغن", "roghan", "oil"],
+  ["تخم", "tokhm", "egg"],
+  ["کچالو", "kachaaloo", "potato"],
+  ["پیاز", "piyaaz", "onion"],
+  ["بادنجان رومی", "baadenjaan-e roomi", "tomato"],
+  ["سیب", "seb", "apple"],
+  ["کیله", "kela", "banana"],
+  ["انگور", "angoor", "grapes"],
+  ["مالته", "maalta", "orange"],
+  ["لیمو", "limoo", "lemon"],
+  ["بادرنگ", "baadrang", "cucumber"],
+  ["زردک", "zardak", "carrot"],
+  ["لوبیا", "lobiyaa", "beans"],
+  ["نخود", "nakhod", "chickpeas"],
+  ["قاشق", "qaashoq", "spoon"],
+  ["پنجه", "panja", "fork"],
+  ["چاقو", "chaqoo", "knife"],
+  ["پیاله", "piyaala", "cup"],
+  ["بشقاب", "boshqaab", "plate"],
+  ["دیگ", "deg", "pot"],
+  ["بوتل", "botel", "bottle"],
+  ["دسترخوان", "dastarkhwaan", "tablecloth / meal spread"],
+  ["لباس", "lebaas", "clothes"],
+  ["پیراهن", "peraahan", "shirt"],
+  ["پتلون", "patloon", "trousers"],
+  ["کرتی", "korti", "jacket"],
+  ["بوت", "boot", "shoes"],
+  ["جراب", "joraab", "socks"],
+  ["کلاه", "kolaah", "hat"],
+  ["چادر", "chaadar", "scarf / sheet"],
+  ["بکس", "baks", "bag"],
+  ["پول", "pul", "money"],
+  ["کلید", "kaleed", "key"],
+  ["کتاب", "ketaab", "book"],
+  ["کتابچه", "ketaabcha", "notebook"],
+  ["قلم", "qalam", "pen"],
+  ["پنسل", "pensel", "pencil"],
+  ["کاغذ", "kaaghaz", "paper"],
+  ["خط", "khat", "letter / writing"],
+  ["عکس", "aks", "photo"],
+  ["نقشه", "naqsha", "map"],
+  ["تیلیفون", "telefon", "phone"],
+  ["کمپیوتر", "kampyootar", "computer"],
+  ["چارجر", "chaarjar", "charger"],
+  ["انترنت", "internet", "internet"],
+  ["پیام", "payaam", "message"],
+  ["ایمیل", "email", "email"],
+  ["ساعت", "saat", "watch / clock"],
+  ["چراغ", "charaagh", "lamp / light"],
+  ["برق", "barq", "electricity"],
+  ["آینه", "aaena", "mirror"],
+  ["صابون", "saabon", "soap"],
+  ["جان پاک", "jaan paak", "towel"],
+  ["مسواک", "meswaak", "toothbrush"],
+  ["دندان کریم", "dandaan kreem", "toothpaste"],
+  ["دوا", "dawaa", "medicine"],
+  ["تکت", "teket", "ticket"],
+  ["پاسپورت", "paasport", "passport"],
+  ["ویزه", "weeza", "visa"],
+  ["کارت", "kaart", "card"],
+  ["رسید", "raseed", "receipt"],
+  ["تحفه", "tohfa", "gift"],
+  ["گل", "gul", "flower"],
+  ["بسته", "basta", "package"],
+  ["رادیو", "raadio", "radio"],
+  ["تلویزیون", "telwiziyon", "television"],
+  ["موتر", "motar", "car"],
+  ["بایسکل", "baiskel", "bicycle"],
+  ["تکسی", "taksi", "taxi"],
+  ["بس", "bas", "bus"],
+  ["طیاره", "tayaara", "airplane"],
+  ["چتر", "chatr", "umbrella"],
+  ["خانه", "khaana", "house"],
+  ["اتاق", "otaq", "room"],
+  ["آشپزخانه", "aashpazkhaana", "kitchen"],
+  ["تشناب", "tashnaab", "bathroom / toilet"],
+  ["دروازه", "darwaaza", "door / gate"],
+  ["کلکین", "kalkin", "window"],
+  ["میز", "mez", "table"],
+  ["چوکی", "chawki", "chair"],
+  ["تخت", "takht", "bed"],
+  ["کمپل", "kampal", "blanket"],
+  ["بالشت", "baalesht", "pillow"],
+  ["قالین", "qaaleen", "rug / carpet"],
+  ["دیوار", "diwaar", "wall"],
+  ["بام", "baam", "roof"],
+  ["حویلی", "haweli", "yard / courtyard"],
+  ["باغ", "baagh", "garden"],
+  ["درخت", "darakht", "tree"],
+  ["آسمان", "aasmaan", "sky"],
+  ["زمین", "zameen", "ground / earth"],
+  ["دریا", "daryaa", "river / sea"],
+  ["کوه", "koh", "mountain"],
+  ["راه", "raah", "road / way"],
+  ["پل", "pul", "bridge"],
+  ["مکتب", "maktab", "school"],
+  ["شفاخانه", "shafaakhaana", "hospital"],
+  ["بازار", "baazaar", "market"],
+  ["دکان", "dokaan", "shop"],
+  ["بانک", "baank", "bank"],
+  ["دفتر", "daftar", "office"],
+  ["هوتل", "hotel", "hotel"],
+  ["مسجد", "masjed", "mosque"],
+  ["پارک", "paark", "park"],
+  ["ایستگاه", "estgaah", "station"],
+  ["میدان هوایی", "maydaan-e hawaayi", "airport"]
+];
+
+const supplementalPeople = [
+  ["مرد", "mard", "man"],
+  ["زن", "zan", "woman"],
+  ["طفل", "tefl", "child"],
+  ["پسر", "pesar", "boy / son"],
+  ["دختر", "dokhtar", "girl / daughter"],
+  ["دوست", "dost", "friend"],
+  ["همسایه", "hamsaaya", "neighbor"],
+  ["معلم", "moallem", "teacher"],
+  ["شاگرد", "shaagerd", "student"],
+  ["داکتر", "daaktar", "doctor"],
+  ["نرس", "nars", "nurse"],
+  ["راننده", "raananda", "driver"],
+  ["فروشنده", "foroshanda", "seller"],
+  ["مهمان", "mehmaan", "guest"],
+  ["خانواده", "khaanawaada", "family"],
+  ["پدر", "padar", "father"],
+  ["مادر", "maadar", "mother"],
+  ["برادر", "baraadar", "brother"],
+  ["خواهر", "khwaahar", "sister"],
+  ["کاکا", "kaakaa", "uncle"],
+  ["خاله", "khaala", "aunt"],
+  ["پدرکلان", "padar-kalaan", "grandfather"],
+  ["مادرکلان", "maadar-kalaan", "grandmother"],
+  ["نواسه", "nawaasa", "grandchild"]
+];
+
+const supplementalPlaces = [
+  ["خانه", "khaana", "house"],
+  ["اتاق", "otaq", "room"],
+  ["آشپزخانه", "aashpazkhaana", "kitchen"],
+  ["تشناب", "tashnaab", "bathroom / toilet"],
+  ["مکتب", "maktab", "school"],
+  ["دانشگاه", "daaneshgaah", "university"],
+  ["شفاخانه", "shafaakhaana", "hospital"],
+  ["دواخانه", "dawaakhaana", "pharmacy"],
+  ["بازار", "baazaar", "market"],
+  ["دکان", "dokaan", "shop"],
+  ["بانک", "baank", "bank"],
+  ["دفتر", "daftar", "office"],
+  ["هوتل", "hotel", "hotel"],
+  ["مسجد", "masjed", "mosque"],
+  ["پارک", "paark", "park"],
+  ["ایستگاه", "estgaah", "station"],
+  ["میدان هوایی", "maydaan-e hawaayi", "airport"],
+  ["سفارت", "sefaaret", "embassy"],
+  ["پولیس", "polis", "police station / police"],
+  ["رستورانت", "restoraant", "restaurant"],
+  ["نانوایی", "naanawaayi", "bakery"],
+  ["کتابخانه", "ketaabkhaana", "library"],
+  ["شهر", "shahr", "city"],
+  ["قریه", "qarya", "village"],
+  ["سرک", "sarak", "street"],
+  ["چهارراهی", "chahaar-raahi", "intersection"],
+  ["پل", "pul", "bridge"],
+  ["باغ", "baagh", "garden"],
+  ["حویلی", "haweli", "courtyard"],
+  ["دروازه", "darwaaza", "gate / door"],
+  ["گمرک", "gomrok", "customs office"],
+  ["محکمه", "mahkama", "court"],
+  ["پوسته خانه", "posta khaana", "post office"],
+  ["ورزشگاه", "warzeshgaah", "gym / sports ground"],
+  ["آرایشگاه", "aaraayeshgaah", "barber / salon"],
+  ["تعمیر", "taamir", "building"],
+  ["طبقه", "tabaqa", "floor / level"],
+  ["راهرو", "raah-raw", "hallway"],
+  ["زینه", "zeena", "stairs"],
+  ["صنایع دستی", "sanaaye dasti", "handicrafts place / craft goods"]
+];
+
+const supplementalAdjectives = [
+  ["خوب", "khoob", "good"],
+  ["خراب", "kharaab", "bad / broken"],
+  ["کلان", "kalaan", "big"],
+  ["خورد", "khord", "small"],
+  ["نو", "naw", "new"],
+  ["کهنه", "kohna", "old"],
+  ["زیبا", "zebaa", "beautiful"],
+  ["پاک", "paak", "clean"],
+  ["ناپاک", "naapaak", "dirty"],
+  ["آسان", "aasaan", "easy"],
+  ["مشکل", "moshkel", "difficult"],
+  ["سرد", "sard", "cold"],
+  ["گرم", "garm", "hot / warm"],
+  ["تر", "tar", "wet"],
+  ["خشک", "khushk", "dry"],
+  ["باز", "baaz", "open"],
+  ["بسته", "basta", "closed"],
+  ["ارزان", "arzaan", "cheap"],
+  ["گران", "giraan", "expensive"],
+  ["نزدیک", "nazdik", "near"],
+  ["دور", "door", "far"],
+  ["روشن", "rawshan", "bright / clear"],
+  ["تاریک", "taarik", "dark"],
+  ["سنگین", "sangeen", "heavy"],
+  ["سبک", "sabok", "lightweight"],
+  ["تند", "tond", "fast / spicy"],
+  ["آهسته", "aahesta", "slow / slowly"],
+  ["شیرین", "shireen", "sweet"],
+  ["تلخ", "talkh", "bitter"],
+  ["شور", "shor", "salty"],
+  ["خوشمزه", "khoshmaza", "delicious"],
+  ["خسته", "khasta", "tired"],
+  ["خوش", "khosh", "happy"],
+  ["خفه", "khafa", "sad / upset"],
+  ["آرام", "aaraam", "calm / quiet"],
+  ["مصروف", "masroof", "busy"],
+  ["آزاد", "aazaad", "free / available"],
+  ["ضروری", "zaroori", "necessary"],
+  ["مهم", "mohem", "important"],
+  ["درست", "dorost", "correct"]
+];
+
+const supplementalVerbs = [
+  ["رفتن", "raftan", "to go"],
+  ["آمدن", "aamadan", "to come"],
+  ["دیدن", "deedan", "to see"],
+  ["شنیدن", "sheneedan", "to hear"],
+  ["گفتن", "goftan", "to say"],
+  ["پرسیدن", "porse dan", "to ask"],
+  ["فهمیدن", "fahmidan", "to understand"],
+  ["دانستن", "daanestan", "to know"],
+  ["خواندن", "khaandan", "to read / study"],
+  ["نوشتن", "naweshtan", "to write"],
+  ["خوردن", "khordan", "to eat"],
+  ["نوشیدن", "noshidan", "to drink"],
+  ["خریدن", "khareedan", "to buy"],
+  ["فروختن", "forokhtan", "to sell"],
+  ["دادن", "daadan", "to give"],
+  ["گرفتن", "gereftan", "to take / get"],
+  ["آوردن", "aawardan", "to bring"],
+  ["بردن", "bordan", "to take away"],
+  ["باز کردن", "baaz kardan", "to open"],
+  ["بسته کردن", "basta kardan", "to close"],
+  ["نشستن", "neshastan", "to sit"],
+  ["ایستاد شدن", "estaad shodan", "to stand up"],
+  ["خوابیدن", "khaabidan", "to sleep"],
+  ["کار کردن", "kaar kardan", "to work"],
+  ["انتظار کشیدن", "entezaar kashidan", "to wait"],
+  ["جستجو کردن", "jost-o-jo kardan", "to search"],
+  ["شروع کردن", "shoroo kardan", "to start"],
+  ["ختم کردن", "khatm kardan", "to finish"],
+  ["یاد گرفتن", "yaad gereftan", "to learn"],
+  ["یاد دادن", "yaad daadan", "to teach"],
+  ["کمک کردن", "komak kardan", "to help"],
+  ["زنگ زدن", "zang zadan", "to call by phone"],
+  ["فرستادن", "ferestaadan", "to send"],
+  ["ماندن", "maandan", "to stay"],
+  ["زندگی کردن", "zendagi kardan", "to live"],
+  ["دوست داشتن", "dost daashtan", "to like / love"],
+  ["خواستن", "khaastan", "to want"],
+  ["توانستن", "tawaanestan", "to be able to"],
+  ["ضرورت داشتن", "zaroorat daashtan", "to need"],
+  ["صحبت کردن", "sohbat kardan", "to speak / talk"]
+];
+
+const supplementalQuestionStarters = [
+  ["این چیست؟", "een cheest?", "what is this?"],
+  ["آن چیست؟", "aan cheest?", "what is that?"],
+  ["این کی است؟", "een ki ast?", "who is this?"],
+  ["آن کی است؟", "aan ki ast?", "who is that?"],
+  ["کجا است؟", "kojaa ast?", "where is it?"],
+  ["کجا می‌روید؟", "kojaa merawed?", "where are you going?"],
+  ["کجا زندگی می‌کنید؟", "kojaa zendagi mekoneed?", "where do you live?"],
+  ["چه وقت می‌آیید؟", "che waqt meyaaed?", "when are you coming?"],
+  ["چرا؟", "cheraa?", "why?"],
+  ["چطور؟", "chetor?", "how?"],
+  ["کدام یکی؟", "kodaam yaki?", "which one?"],
+  ["چند است؟", "chand ast?", "how much is it?"],
+  ["چند نفر است؟", "chand nafar ast?", "how many people are there?"],
+  ["نام شما چیست؟", "naam-e shomaa cheest?", "what is your name?"],
+  ["شماره شما چیست؟", "shomaara-ye shomaa cheest?", "what is your number?"],
+  ["آدرس شما چیست؟", "adres-e shomaa cheest?", "what is your address?"],
+  ["حال شما چطور است؟", "haal-e shomaa chetor ast?", "how are you?"],
+  ["چه کار می‌کنید؟", "che kaar mekoneed?", "what do you do?"],
+  ["کمک می‌خواهید؟", "komak mekhahyed?", "do you want help?"],
+  ["دری صحبت می‌کنید؟", "dari sohbat mekoneed?", "do you speak Dari?"]
+];
+
+function toItems(entries) {
+  return entries.map(([dari, latin, meaning, note]) => ({
+    dari,
+    latin,
+    meaning,
+    ...(note ? { note } : {})
+  }));
+}
+
+function createLesson(id, title, category, level, minutes, summary, items, tip) {
+  return { id, title, category, level, minutes, summary, items, tip };
+}
+
+function wantPhrase([dari, latin, meaning]) {
+  return [`من ${dari} می‌خواهم`, `man ${latin} mekhaham`, `I want ${meaning}`];
+}
+
+function haveQuestion([dari, latin, meaning]) {
+  return [`${dari} دارید؟`, `${latin} daared?`, `do you have ${meaning}?`];
+}
+
+function whereQuestion([dari, latin, meaning]) {
+  return [`${dari} کجا است؟`, `${latin} kojaa ast?`, `where is the ${meaning}?`];
+}
+
+function giveRequest([dari, latin, meaning]) {
+  return [`لطفاً ${dari} بدهید`, `lotfan ${latin} bedehed`, `please give ${meaning}`];
+}
+
+function adjectiveSentence([dari, latin, meaning]) {
+  return [`این ${dari} است`, `een ${latin} ast`, `this is ${meaning}`];
+}
+
+function canVerbQuestion([dari, latin, meaning]) {
+  return [`می‌توانم ${dari}؟`, `metaanam ${latin}?`, `can I ${meaning.replace("to ", "")}?`];
+}
+
+function needObjectPhrase([dari, latin, meaning]) {
+  return [`من به ${dari} ضرورت دارم`, `man ba ${latin} zaroorat daaram`, `I need ${meaning}`];
+}
+
+const supplementalLessons = [
+  createLesson(
+    "supplemental-everyday-objects",
+    "Everyday Objects Mega List",
+    "Objects",
+    "Beginner",
+    30,
+    "A broad reference set of common foods, household items, documents, transport words, and useful objects.",
+    toItems(supplementalObjects),
+    "Use these nouns with patterns like een cheest, man ... mekhaham, and ... kojaa ast."
+  ),
+  createLesson(
+    "supplemental-people-roles",
+    "People and Roles Mega List",
+    "People",
+    "Beginner",
+    16,
+    "Common people, family, work, and relationship words.",
+    toItems(supplementalPeople),
+    "People words combine well with oo ki ast and een dost-e man ast."
+  ),
+  createLesson(
+    "supplemental-places",
+    "Places Mega List",
+    "Travel",
+    "Beginner",
+    24,
+    "Places you may need to find, ask about, or recognize around town.",
+    toItems(supplementalPlaces),
+    "Add kojaa ast after any place to ask where it is."
+  ),
+  createLesson(
+    "supplemental-describing-words",
+    "Describing Words Mega List",
+    "Descriptions",
+    "Beginner",
+    20,
+    "Adjectives for describing quality, size, feeling, price, distance, and condition.",
+    toItems(supplementalAdjectives),
+    "Most of these can follow a noun or fit into een ... ast."
+  ),
+  createLesson(
+    "supplemental-action-words",
+    "Action Words Mega List",
+    "Verbs",
+    "Beginner",
+    24,
+    "High-value infinitive verbs for building sentences and recognizing instructions.",
+    toItems(supplementalVerbs),
+    "Learn infinitives first, then connect them to present-tense forms."
+  ),
+  createLesson(
+    "supplemental-core-questions",
+    "Core Questions Mega List",
+    "Questions",
+    "Beginner",
+    18,
+    "Fast, reusable questions for names, places, numbers, help, and conversation repair.",
+    toItems(supplementalQuestionStarters),
+    "Questions are the fastest way to keep a conversation moving."
+  ),
+  createLesson(
+    "supplemental-i-want",
+    "I Want Phrases",
+    "Sentence Patterns",
+    "Beginner",
+    28,
+    "Useful request phrases built from common objects.",
+    toItems(supplementalObjects.slice(0, 75).map(wantPhrase)),
+    "Swap the noun to ask for many everyday things."
+  ),
+  createLesson(
+    "supplemental-do-you-have",
+    "Do You Have Questions",
+    "Shopping",
+    "Beginner",
+    28,
+    "Shopping and availability questions built from common nouns.",
+    toItems(supplementalObjects.slice(0, 75).map(haveQuestion)),
+    "This pattern is useful in shops, homes, offices, and travel situations."
+  ),
+  createLesson(
+    "supplemental-where-is",
+    "Where Is It Questions",
+    "Travel",
+    "Beginner",
+    24,
+    "Location questions for places and important objects.",
+    toItems([...supplementalPlaces, ...supplementalObjects.slice(80, 105)].slice(0, 55).map(whereQuestion)),
+    "Say the place or object first, then kojaa ast."
+  ),
+  createLesson(
+    "supplemental-please-give",
+    "Please Give Requests",
+    "Conversation",
+    "Beginner",
+    22,
+    "Polite give-me requests for common items.",
+    toItems(supplementalObjects.slice(0, 65).map(giveRequest)),
+    "Lotfan softens direct requests."
+  ),
+  createLesson(
+    "supplemental-this-is",
+    "This Is Description Patterns",
+    "Descriptions",
+    "Beginner",
+    18,
+    "Simple description sentences using common adjectives.",
+    toItems(supplementalAdjectives.slice(0, 30).map(adjectiveSentence)),
+    "Use een before a description when pointing to something."
+  ),
+  createLesson(
+    "supplemental-can-i",
+    "Can I Questions",
+    "Questions",
+    "Beginner",
+    18,
+    "Permission and ability questions built from common verbs.",
+    toItems(supplementalVerbs.slice(0, 30).map(canVerbQuestion)),
+    "Metaanam turns many actions into can-I questions."
+  ),
+  createLesson(
+    "supplemental-i-need",
+    "I Need Phrases",
+    "Conversation",
+    "Beginner",
+    22,
+    "Need phrases for practical objects and services.",
+    toItems(supplementalObjects.slice(0, 56).map(needObjectPhrase)),
+    "Zaroorat daaram is a reliable way to express need."
+  )
+];
+
+lessons.push(...supplementalLessons);
+
 export const quiz = lessons.flatMap((lesson) =>
   lesson.items.map((item) => ({
     lessonId: lesson.id,
