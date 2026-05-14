@@ -15,6 +15,9 @@ const selectors = {
   completedCount: document.querySelector("#completedCount"),
   quizAverage: document.querySelector("#quizAverage"),
   streakCount: document.querySelector("#streakCount"),
+  totalLessons: document.querySelector("#totalLessons"),
+  totalTerms: document.querySelector("#totalTerms"),
+  totalCategories: document.querySelector("#totalCategories"),
   quizCounter: document.querySelector("#quizCounter"),
   quizPrompt: document.querySelector("#quizPrompt"),
   quizLatin: document.querySelector("#quizLatin"),
@@ -51,8 +54,14 @@ function allPhrases() {
 }
 
 function updateStats() {
+  const phrases = allPhrases();
+  const categories = new Set(state.lessons.map((lesson) => lesson.category || lesson.title));
+
   selectors.completedCount.textContent = state.progress.completedLessons.length;
   selectors.streakCount.textContent = state.progress.streak || 0;
+  selectors.totalLessons.textContent = state.lessons.length;
+  selectors.totalTerms.textContent = phrases.length;
+  selectors.totalCategories.textContent = categories.size;
 
   const attempts = state.progress.quizAttempts;
   const average = attempts.length
@@ -90,7 +99,10 @@ function renderLessons() {
               <h3 class="lesson-title">${lesson.title}</h3>
               <p class="meaning">${lesson.summary}</p>
             </div>
-            <span class="meta">${done ? "Done" : "New"}</span>
+            <div class="lesson-badges" aria-label="Lesson status and size">
+              <span class="status-pill">${done ? "Done" : "New"}</span>
+              <span class="status-pill quiet">${lesson.items.length} terms</span>
+            </div>
           </div>
           <div class="lesson-items">${items}</div>
           <p class="lesson-tip">${lesson.tip}</p>
@@ -123,7 +135,7 @@ function renderPhrasebook(query = "") {
         </div>
       `
     )
-    .join("");
+    .join("") || `<p class="empty-state">No matches yet. Try a different Dari word, transliteration, English meaning, or category.</p>`;
 }
 
 function renderCategoryFilters() {

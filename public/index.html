@@ -23,18 +23,30 @@
     <main>
       <section id="dashboard" class="hero-section">
         <div class="hero-copy">
-          <p class="eyebrow">Beginner Dari course</p>
-          <h1>Learn practical Dari through script, phrases, and fast recall.</h1>
-          <p class="lede">Build a useful foundation with short lessons, right-to-left reading practice, transliteration, and quizzes that save your progress.</p>
+          <p class="eyebrow">Dari learning database</p>
+          <h1>Build real Dari recall from letters to everyday questions.</h1>
+          <p class="lede">Study script, words, sentence patterns, polite phrases, and quick questions with a searchable phrasebook and quizzes that save your progress.</p>
           <div class="hero-actions">
             <a class="primary-button" href="#lessons">Start learning</a>
             <a class="secondary-button" href="#practice">Take quiz</a>
           </div>
+          <div class="hero-metrics" aria-label="Course library totals">
+            <span><strong id="totalLessons">0</strong> lessons</span>
+            <span><strong id="totalTerms">0</strong> terms</span>
+            <span><strong id="totalCategories">0</strong> categories</span>
+          </div>
         </div>
         <div class="script-panel" aria-label="Dari script sample">
-          <span>سلام</span>
-          <span>تشکر</span>
-          <span>خدا حافظ</span>
+          <div class="script-card feature">
+            <span dir="rtl">دری</span>
+            <small>dari · Dari</small>
+          </div>
+          <div class="script-strip">
+            <span dir="rtl">سلام</span>
+            <span dir="rtl">تشکر</span>
+            <span dir="rtl">خدا حافظ</span>
+            <span dir="rtl">کجا؟</span>
+          </div>
         </div>
       </section>
 
@@ -57,6 +69,7 @@
         <div class="section-heading">
           <p class="eyebrow">Course path</p>
           <h2>Lessons</h2>
+          <p class="section-copy">Each lesson is a focused bucket of Dari you can search, review, and quiz from later.</p>
         </div>
         <div id="lessonGrid" class="lesson-grid"></div>
       </section>
@@ -65,6 +78,7 @@
         <div class="section-heading">
           <p class="eyebrow">Recall trainer</p>
           <h2>Practice quiz</h2>
+          <p class="section-copy">Choose the English meaning for the Dari prompt. The quiz pulls from the whole database.</p>
         </div>
         <div class="quiz-shell">
           <div>
@@ -84,6 +98,7 @@
         <div class="section-heading">
           <p class="eyebrow">Quick reference</p>
           <h2>Phrasebook</h2>
+          <p class="section-copy">Search across Dari script, transliteration, English meaning, notes, and lesson categories.</p>
         </div>
         <label class="search-label" for="phraseSearch">Search Dari, transliteration, or meaning</label>
         <input id="phraseSearch" class="search-input" type="search" placeholder="Try hello, tashakor, or where">
