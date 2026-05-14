@@ -1,3 +1,5 @@
+import { lessons } from "./data/lessons.js";
+
 const state = {
   lessons: [],
   quiz: [],
@@ -6,6 +8,61 @@ const state = {
   score: 0,
   answered: false
 };
+
+const STORAGE_KEY = "learnDariProgress";
+
+function getDefaultProgress() {
+  return { completedLessons: [], quizAttempts: [], streak: 0 };
+}
+
+function readProgress() {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : getDefaultProgress();
+  } catch {
+    return getDefaultProgress();
+  }
+}
+
+function saveProgress(progress) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  return progress;
+}
+
+function markLessonComplete(lessonId) {
+  const progress = readProgress();
+  if (!progress.completedLessons.includes(lessonId)) {
+    progress.completedLessons.push(lessonId);
+  }
+  progress.completedLessons = Array.from(new Set(progress.completedLessons));
+  progress.streak = Math.max(progress.streak || 0, 1);
+  return saveProgress(progress);
+}
+
+function addQuizAttempt(score, total) {
+  const progress = readProgress();
+  progress.quizAttempts = [
+    {
+      score: Number(score || 0),
+      total: Number(total || 0),
+      date: new Date().toISOString()
+    },
+    ...progress.quizAttempts
+  ].slice(0, 10);
+  progress.streak = Math.max(progress.streak || 0, 1);
+  return saveProgress(progress);
+}
+
+function buildQuiz(lessons) {
+  return lessons.flatMap((lesson) =>
+    lesson.items.map((item) => ({
+      lessonId: lesson.id,
+      prompt: item.dari,
+      answer: item.meaning,
+      latin: item.latin
+    }))
+  );
+}
 
 const selectors = {
   lessonGrid: document.querySelector("#lessonGrid"),
@@ -27,17 +84,6 @@ const selectors = {
 };
 
 let activeCategory = "all";
-
-async function api(path, options = {}) {
-  const response = await fetch(path, {
-    headers: { "Content-Type": "application/json" },
-    ...options
-  });
-  if (!response.ok) {
-    throw new Error(`Request failed: ${response.status}`);
-  }
-  return response.json();
-}
 
 function shuffle(items) {
   return [...items].sort(() => Math.random() - 0.5);
@@ -181,24 +227,18 @@ function renderQuiz() {
     .join("");
 }
 
-async function finishQuizRound() {
-  state.progress = await api("/api/progress/quiz", {
-    method: "POST",
-    body: JSON.stringify({ score: state.score, total: 8 })
-  });
+function finishQuizRound() {
+  state.progress = addQuizAttempt(state.score, 8);
   updateStats();
   selectors.quizFeedback.textContent = `Round saved: ${state.score} out of 8.`;
   state.score = 0;
 }
 
-selectors.lessonGrid.addEventListener("click", async (event) => {
+selectors.lessonGrid.addEventListener("click", (event) => {
   const button = event.target.closest("[data-lesson-id]");
   if (!button) return;
 
-  state.progress = await api("/api/progress/lesson", {
-    method: "POST",
-    body: JSON.stringify({ lessonId: button.dataset.lessonId })
-  });
+  state.progress = markLessonComplete(button.dataset.lessonId);
   updateStats();
   renderLessons();
 });
@@ -222,10 +262,10 @@ selectors.answerGrid.addEventListener("click", (event) => {
   });
 });
 
-selectors.nextQuestion.addEventListener("click", async () => {
+selectors.nextQuestion.addEventListener("click", () => {
   state.currentQuestion += 1;
   if (state.currentQuestion % 8 === 0) {
-    await finishQuizRound();
+    finishQuizRound();
   }
   renderQuiz();
 });
@@ -250,14 +290,9 @@ document.querySelectorAll(".nav-link").forEach((link) => {
 });
 
 async function init() {
-  const [lessons, quiz, progress] = await Promise.all([
-    api("/api/lessons"),
-    api("/api/quiz"),
-    api("/api/progress")
-  ]);
   state.lessons = lessons;
-  state.quiz = shuffle(quiz);
-  state.progress = progress;
+  state.quiz = shuffle(buildQuiz(lessons));
+  state.progress = readProgress();
 
   updateStats();
   renderLessons();
