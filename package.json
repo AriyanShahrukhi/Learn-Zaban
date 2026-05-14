@@ -1,0 +1,17 @@
+{
+  "name": "learn-dari-fullstack",
+  "version": "1.0.0",
+  "description": "A full-stack website for learning Dari basics.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.mjs",
+    "dev": "node server.mjs"
+  },
+  "keywords": [
+    "dari",
+    "language-learning",
+    "fullstack"
+  ],
+  "author": "",
+  "license": "MIT"
+}

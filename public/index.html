@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Learn Dari</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <aside class="sidebar" aria-label="Course navigation">
+      <a class="brand" href="#dashboard" aria-label="Learn Dari home">
+        <span class="brand-mark">د</span>
+        <span>Learn Dari</span>
+      </a>
+      <nav>
+        <a href="#dashboard" class="nav-link active">Dashboard</a>
+        <a href="#lessons" class="nav-link">Lessons</a>
+        <a href="#practice" class="nav-link">Practice</a>
+        <a href="#phrasebook" class="nav-link">Phrasebook</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="dashboard" class="hero-section">
+        <div class="hero-copy">
+          <p class="eyebrow">Beginner Dari course</p>
+          <h1>Learn practical Dari through script, phrases, and fast recall.</h1>
+          <p class="lede">Build a useful foundation with short lessons, right-to-left reading practice, transliteration, and quizzes that save your progress.</p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#lessons">Start learning</a>
+            <a class="secondary-button" href="#practice">Take quiz</a>
+          </div>
+        </div>
+        <div class="script-panel" aria-label="Dari script sample">
+          <span>سلام</span>
+          <span>تشکر</span>
+          <span>خدا حافظ</span>
+        </div>
+      </section>
+
+      <section class="stats-band" aria-label="Learning progress">
+        <div>
+          <span id="completedCount">0</span>
+          <p>Lessons done</p>
+        </div>
+        <div>
+          <span id="quizAverage">0%</span>
+          <p>Quiz average</p>
+        </div>
+        <div>
+          <span id="streakCount">0</span>
+          <p>Study streak</p>
+        </div>
+      </section>
+
+      <section id="lessons" class="content-section">
+        <div class="section-heading">
+          <p class="eyebrow">Course path</p>
+          <h2>Lessons</h2>
+        </div>
+        <div id="lessonGrid" class="lesson-grid"></div>
+      </section>
+
+      <section id="practice" class="practice-section">
+        <div class="section-heading">
+          <p class="eyebrow">Recall trainer</p>
+          <h2>Practice quiz</h2>
+        </div>
+        <div class="quiz-shell">
+          <div>
+            <p id="quizCounter" class="quiz-counter">Question 1</p>
+            <p id="quizPrompt" class="quiz-prompt" dir="rtl">سلام</p>
+            <p id="quizLatin" class="quiz-latin">salaam</p>
+          </div>
+          <div id="answerGrid" class="answer-grid"></div>
+          <div class="quiz-footer">
+            <p id="quizFeedback" class="feedback" aria-live="polite"></p>
+            <button id="nextQuestion" class="primary-button" type="button">Next</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="phrasebook" class="content-section">
+        <div class="section-heading">
+          <p class="eyebrow">Quick reference</p>
+          <h2>Phrasebook</h2>
+        </div>
+        <label class="search-label" for="phraseSearch">Search Dari, transliteration, or meaning</label>
+        <input id="phraseSearch" class="search-input" type="search" placeholder="Try hello, tashakor, or where">
+        <div id="categoryFilters" class="category-filters" aria-label="Phrasebook categories"></div>
+        <div id="phraseList" class="phrase-list"></div>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
