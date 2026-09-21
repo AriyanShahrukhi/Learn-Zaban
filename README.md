@@ -48,3 +48,15 @@ Then open http://127.0.0.1:3000.
 ## Author
 
 Built by [Ariyan Shahrukhi](https://www.linkedin.com/in/shahrukhi/).
+
+
+## Screenshots
+
+### Dashboard
+![Learn Zaban dashboard](dashboard.png)
+
+### Practice quiz
+![Learn Zaban practice quiz](practice.png)
+
+### Searchable phrasebook
+![Learn Zaban phrasebook](phrasebook.png)
